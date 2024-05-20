@@ -1,4 +1,4 @@
-package com.kjone.shopli.content_service.repository;
+package com.kjone.shopli.user_service.repository;
 
 
 import com.kjone.shopli.user_service.domain.user.User;
