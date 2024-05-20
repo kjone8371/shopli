@@ -1,7 +1,7 @@
 package com.kjone.shopli.content_service.service.impl;
 
 import com.kjone.shopli.content_service.domain.request.SignRequest;
-import com.kjone.shopli.content_service.domain.response.SignResponse;
+import com.kjone.shopli.user_service.domain.response.SignResponse;
 import com.kjone.shopli.user_service.domain.role.Authority;
 import com.kjone.shopli.user_service.domain.user.User;
 import com.kjone.shopli.content_service.repository.UserRepository;

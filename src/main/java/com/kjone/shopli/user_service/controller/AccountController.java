@@ -2,7 +2,7 @@ package com.kjone.shopli.user_service.controller;
 
 
 import com.kjone.shopli.content_service.domain.request.SignRequest;
-import com.kjone.shopli.content_service.domain.response.SignResponse;
+import com.kjone.shopli.user_service.domain.response.SignResponse;
 import com.kjone.shopli.user_service.domain.role.Authority;
 import com.kjone.shopli.user_service.domain.user.User;
 import com.kjone.shopli.content_service.security.cookie.CookieProvider;

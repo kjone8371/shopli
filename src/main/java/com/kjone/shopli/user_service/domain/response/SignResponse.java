@@ -1,4 +1,4 @@
-package com.kjone.shopli.content_service.domain.response;
+package com.kjone.shopli.user_service.domain.response;
 
 
 import com.kjone.shopli.user_service.domain.role.Authority;
