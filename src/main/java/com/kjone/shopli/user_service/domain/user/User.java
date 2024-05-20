@@ -1,4 +1,4 @@
-package com.kjone.shopli.content_service.domain.user;
+package com.kjone.shopli.user_service.domain.user;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;

@@ -1,6 +1,6 @@
 package com.kjone.shopli.content_service.security.service.impl;
 
-import com.kjone.shopli.content_service.domain.user.User;
+import com.kjone.shopli.user_service.domain.user.User;
 import com.kjone.shopli.content_service.domain.user.UserForSecurity;
 import com.kjone.shopli.content_service.repository.UserRepository;
 import com.kjone.shopli.content_service.security.service.CustomUserDetailService;

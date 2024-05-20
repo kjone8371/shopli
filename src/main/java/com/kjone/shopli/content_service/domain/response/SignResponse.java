@@ -2,7 +2,7 @@ package com.kjone.shopli.content_service.domain.response;
 
 
 import com.kjone.shopli.content_service.domain.role.Authority;
-import com.kjone.shopli.content_service.domain.user.User;
+import com.kjone.shopli.user_service.domain.user.User;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
