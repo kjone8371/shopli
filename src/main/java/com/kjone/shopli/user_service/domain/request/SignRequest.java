@@ -1,4 +1,4 @@
-package com.kjone.shopli.content_service.domain.request;
+package com.kjone.shopli.user_service.domain.request;
 
 
 import lombok.Getter;

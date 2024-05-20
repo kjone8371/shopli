@@ -1,6 +1,6 @@
 package com.kjone.shopli.content_service.service;
 
-import com.kjone.shopli.content_service.domain.request.SignRequest;
+import com.kjone.shopli.user_service.domain.request.SignRequest;
 import com.kjone.shopli.user_service.domain.response.SignResponse;
 import com.kjone.shopli.user_service.domain.user.User;
 import jakarta.servlet.http.HttpServletResponse;
