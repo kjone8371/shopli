@@ -1,4 +1,4 @@
-package com.kjone.shopli.content_service.security;
+package com.kjone.shopli.user_service.security;
 
 
 import com.kjone.shopli.content_service.security.cookie.CookieProvider;
