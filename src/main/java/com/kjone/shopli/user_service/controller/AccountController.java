@@ -7,7 +7,7 @@ import com.kjone.shopli.user_service.domain.role.Authority;
 import com.kjone.shopli.user_service.domain.user.User;
 import com.kjone.shopli.content_service.security.cookie.CookieProvider;
 import com.kjone.shopli.content_service.security.jwt.JwtProvider;
-import com.kjone.shopli.content_service.service.UserService;
+import com.kjone.shopli.user_service.service.UserService;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

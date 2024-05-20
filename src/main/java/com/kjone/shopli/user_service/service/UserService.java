@@ -1,4 +1,4 @@
-package com.kjone.shopli.content_service.service;
+package com.kjone.shopli.user_service.service;
 
 import com.kjone.shopli.user_service.domain.request.SignRequest;
 import com.kjone.shopli.user_service.domain.response.SignResponse;
