@@ -2,7 +2,7 @@ package com.kjone.shopli.user_service.domain.user;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.kjone.shopli.content_service.domain.role.Authority;
+import com.kjone.shopli.user_service.domain.role.Authority;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;

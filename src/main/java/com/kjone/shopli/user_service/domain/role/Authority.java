@@ -1,4 +1,4 @@
-package com.kjone.shopli.content_service.domain.role;
+package com.kjone.shopli.user_service.domain.role;
 
 
 public enum Authority {
