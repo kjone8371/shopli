@@ -1,4 +1,4 @@
-package com.kjone.shopli.content_service.security.cookie;
+package com.kjone.shopli.user_service.security.cookie;
 
 
 import jakarta.servlet.http.Cookie;

@@ -5,7 +5,7 @@ import com.kjone.shopli.user_service.domain.response.SignResponse;
 import com.kjone.shopli.user_service.domain.role.Authority;
 import com.kjone.shopli.user_service.domain.user.User;
 import com.kjone.shopli.user_service.repository.UserRepository;
-import com.kjone.shopli.content_service.security.cookie.CookieProvider;
+import com.kjone.shopli.user_service.security.cookie.CookieProvider;
 import com.kjone.shopli.user_service.service.UserService;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletResponse;
