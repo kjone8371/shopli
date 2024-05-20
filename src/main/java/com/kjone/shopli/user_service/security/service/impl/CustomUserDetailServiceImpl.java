@@ -1,4 +1,4 @@
-package com.kjone.shopli.content_service.security.service.impl;
+package com.kjone.shopli.user_service.security.service.impl;
 
 import com.kjone.shopli.user_service.domain.user.User;
 import com.kjone.shopli.user_service.domain.user.UserForSecurity;
