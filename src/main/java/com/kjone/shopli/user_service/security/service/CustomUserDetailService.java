@@ -1,4 +1,4 @@
-package com.kjone.shopli.content_service.security.service;
+package com.kjone.shopli.user_service.security.service;
 
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

@@ -2,7 +2,7 @@ package com.kjone.shopli.content_service.security.jwt;
 
 
 import com.kjone.shopli.user_service.domain.role.Authority;
-import com.kjone.shopli.content_service.security.service.CustomUserDetailService;
+import com.kjone.shopli.user_service.security.service.CustomUserDetailService;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.Jwts;

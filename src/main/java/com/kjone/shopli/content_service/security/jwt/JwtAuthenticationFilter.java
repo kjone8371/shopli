@@ -1,7 +1,7 @@
 package com.kjone.shopli.content_service.security.jwt;
 
 import com.kjone.shopli.user_service.security.cookie.CookieProvider;
-import com.kjone.shopli.content_service.security.service.CustomUserDetailService;
+import com.kjone.shopli.user_service.security.service.CustomUserDetailService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

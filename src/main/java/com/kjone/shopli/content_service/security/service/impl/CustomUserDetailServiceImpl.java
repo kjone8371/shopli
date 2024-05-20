@@ -3,7 +3,7 @@ package com.kjone.shopli.content_service.security.service.impl;
 import com.kjone.shopli.user_service.domain.user.User;
 import com.kjone.shopli.user_service.domain.user.UserForSecurity;
 import com.kjone.shopli.user_service.repository.UserRepository;
-import com.kjone.shopli.content_service.security.service.CustomUserDetailService;
+import com.kjone.shopli.user_service.security.service.CustomUserDetailService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
