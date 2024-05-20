@@ -1,6 +1,5 @@
-package com.kjone.shopli.content_service.domain.user;
+package com.kjone.shopli.user_service.domain.user;
 
-import com.kjone.shopli.user_service.domain.user.User;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NonNull;
