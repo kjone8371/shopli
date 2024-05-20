@@ -3,7 +3,7 @@ package com.kjone.shopli.user_service.security;
 
 import com.kjone.shopli.user_service.security.cookie.CookieProvider;
 import com.kjone.shopli.content_service.security.jwt.JwtAuthenticationFilter;
-import com.kjone.shopli.content_service.security.jwt.JwtProvider;
+import com.kjone.shopli.user_service.security.jwt.JwtProvider;
 import com.kjone.shopli.user_service.security.service.CustomUserDetailService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
