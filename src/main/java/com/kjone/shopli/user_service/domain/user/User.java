@@ -24,7 +24,7 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @JsonIgnore
     private Long id; // 아이디
-
+s
     private String email; // 이메일
     private String password; // 비밀번호
     private String username; // 유저 이름
