@@ -23,14 +23,14 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @JsonIgnore
-    private Long id;
+    private Long id; // 아이디
 
-    private String email;
-    private String password;
+    private String email; // 이메일
+    private String password; // 비밀번호
     private String username; // 유저 이름
     private int age; // 나이
     @JsonIgnore
-    private Long image;
+    private Long image; // 이미지
 
     @CreationTimestamp // INSERT 시 자동으로 값을 채워줌
     private LocalDateTime createTime = LocalDateTime.now();

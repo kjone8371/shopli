@@ -8,7 +8,9 @@ import java.util.Optional;
 
 @Repository
 public interface ContentRepository extends JpaRepository<Content, Long> {
-    Optional<Content> findById(Long id);
 
+    Optional<Content> findByContName(String cont_name);
+
+    Optional<Content> findByTitle(String title);
 
 }

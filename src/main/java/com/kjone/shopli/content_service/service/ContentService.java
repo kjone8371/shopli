@@ -2,8 +2,6 @@ package com.kjone.shopli.content_service.service;
 
 
 import com.kjone.shopli.content_service.domain.content.Content;
-import com.kjone.shopli.content_service.domain.request.ContentRequest;
-import com.kjone.shopli.content_service.domain.response.ContentResponse;
 
 public interface ContentService {
 

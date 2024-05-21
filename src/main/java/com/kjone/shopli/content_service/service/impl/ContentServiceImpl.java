@@ -1,7 +1,5 @@
 package com.kjone.shopli.content_service.service.impl;
 
-import com.kjone.shopli.content_service.domain.request.ContentRequest;
-import com.kjone.shopli.content_service.domain.response.ContentResponse;
 import com.kjone.shopli.content_service.repository.ContentRepository;
 import com.kjone.shopli.content_service.service.ContentService;
 import lombok.RequiredArgsConstructor;
