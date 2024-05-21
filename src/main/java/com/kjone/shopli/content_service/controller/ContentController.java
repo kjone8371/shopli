@@ -17,7 +17,6 @@ public class ContentController {
 
     @GetMapping("/list/all")
     public ResponseEntity<List<?>> getAllContent(){
-        List<?> ;
 
         return new ResponseEntity<>(HttpStatus.OK);
     }
