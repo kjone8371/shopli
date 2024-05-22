@@ -52,4 +52,3 @@ public class ItemServiceImpl implements ItemService {
         return itemRepository.findByNameContaining(keyword);
     }
 }
-ㅇ
