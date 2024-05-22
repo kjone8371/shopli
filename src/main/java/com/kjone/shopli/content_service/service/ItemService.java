@@ -22,4 +22,3 @@ public interface ItemService {
 
     public List<Item> searchItems(String keyword);
 }
-ㅇ
