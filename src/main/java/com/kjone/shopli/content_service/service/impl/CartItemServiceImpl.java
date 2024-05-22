@@ -38,4 +38,3 @@ public class CartItemServiceImpl implements CartItemService {
         cartItemRepository.deleteById(cartItemId);
     }
 }
-ㅇ

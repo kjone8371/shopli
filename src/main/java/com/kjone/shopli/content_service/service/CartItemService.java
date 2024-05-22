@@ -23,4 +23,3 @@ public interface CartItemService {
     public void removeCartItem(Long cartItemId);
 
 }
-ㅇ
