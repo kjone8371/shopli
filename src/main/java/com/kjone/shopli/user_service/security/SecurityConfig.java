@@ -40,14 +40,11 @@ public class SecurityConfig {
                 .httpBasic(AbstractHttpConfigurer::disable)
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests((authorize) -> authorize
-                        .requestMatchers(HttpMethod.POST, "/user/signup", "/user/signin").permitAll()
-                        .requestMatchers(HttpMethod.DELETE, "/user/delete").hasRole("USER")
-                        .requestMatchers(HttpMethod.POST, "/api/items/**").permitAll()
-                        .requestMatchers(HttpMethod.GET, "/api/items/**").permitAll()
-                        .requestMatchers(HttpMethod.POST, "/api/cart/**").permitAll()
-                        .requestMatchers(HttpMethod.GET, "/api/cart/**").permitAll()
-                        .requestMatchers(HttpMethod.POST, "/api/orders**").permitAll()
-                        .requestMatchers(HttpMethod.GET, "/api/orders/**").permitAll()
+                        .requestMatchers("/user/signup", "/user/signin").permitAll()
+                        .requestMatchers(HttpMethod.DELETE, "/user/delete").permitAll()
+                        .requestMatchers("/api/items/**").permitAll()
+                        .requestMatchers("/api/cart/**").permitAll()
+                        .requestMatchers("/api/orders/**").permitAll()
                         .requestMatchers("/user/**").permitAll()
                         .anyRequest().denyAll());
 
@@ -55,3 +52,4 @@ public class SecurityConfig {
         return http.build();
     }
 }
+d
