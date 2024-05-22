@@ -6,6 +6,7 @@ import com.kjone.shopli.user_service.domain.user.User;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface UserService {
     public boolean signUp(SignRequest signRequest) throws Exception;
@@ -15,4 +16,5 @@ public interface UserService {
     public List<User> getAllUsers();
     User createProfile(Long userId, SignRequest signRequest) throws Exception;
     User updateProfile(Long userId, SignRequest signRequest) throws Exception;
+    public Optional<User> getUserById(Long id) ;
 }

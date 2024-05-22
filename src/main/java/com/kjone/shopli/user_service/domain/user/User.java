@@ -2,6 +2,8 @@ package com.kjone.shopli.user_service.domain.user;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.kjone.shopli.content_service.domain.entity.CartItem;
+import com.kjone.shopli.content_service.domain.entity.Order;
 import com.kjone.shopli.user_service.domain.role.Authority;
 import jakarta.persistence.*;
 import lombok.*;
@@ -10,6 +12,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -44,6 +47,12 @@ public class User {
     @CollectionTable(name = "authority", joinColumns = @JoinColumn(name = "user_id"))
     @Column(name = "roles")
     private Set<Authority> roles = new HashSet<>();
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<CartItem> cartItems;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Order> orders;
 
 
     public User(Long id, String email, String password, String username, int age, LocalDateTime createTime, LocalDateTime updateTime, Set<Authority> roles) {
