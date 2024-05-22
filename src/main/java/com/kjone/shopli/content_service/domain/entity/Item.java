@@ -26,7 +26,7 @@ public class Item {
     private String name; //상품명
 
     @Column(nullable = false)
-    private int price; //가격
+    private String price; //가격 // 수정
 
     @Column(nullable= false)
     private int stockNumber; //재고수량

@@ -16,20 +16,20 @@ import java.util.List;
 public class ItemController {
     private final ItemService itemService;
 
-    @GetMapping
+    @GetMapping("/getall")
     public ResponseEntity<List<Item>> getAllItems() {
         List<Item> items = itemService.getAllItems();
         return new ResponseEntity<>(items, HttpStatus.OK);
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Item> getItemById(@PathVariable Long id) {
+    @GetMapping("/getId")
+    public ResponseEntity<Item> getItemById(@RequestParam Long id) {
         Item item = itemService.getItemById(id)
                 .orElseThrow(() -> new RuntimeException("Item not found"));
         return new ResponseEntity<>(item, HttpStatus.OK);
     }
 
-    @PostMapping
+    @PostMapping("/create/item")
     public ResponseEntity<Item> createItem(@RequestBody Item item) {
         Item createdItem = itemService.createItem(item);
         return new ResponseEntity<>(createdItem, HttpStatus.CREATED);
