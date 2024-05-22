@@ -17,7 +17,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @ToString
 public class Item {
-ㅇ
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id; //상품코드
