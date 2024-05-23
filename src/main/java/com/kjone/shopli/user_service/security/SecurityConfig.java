@@ -41,10 +41,11 @@ public class SecurityConfig {
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests((authorize) -> authorize
                         .requestMatchers("/user/signup", "/user/signin").permitAll()
-                        .requestMatchers(HttpMethod.DELETE, "/user/delete").permitAll()
-                        .requestMatchers("/api/items/**").permitAll()
-                        .requestMatchers("/api/cart/**").permitAll()
-                        .requestMatchers("/api/orders/**").permitAll()
+                        .requestMatchers(HttpMethod.DELETE, "/user/delete").hasRole("USER")
+                        .requestMatchers(HttpMethod.GET,"/items/**").permitAll()
+                        .requestMatchers(HttpMethod.POST,"/items/**").permitAll()
+                        .requestMatchers("/cart/**").permitAll()
+                        .requestMatchers("/orders/**").permitAll()
                         .requestMatchers("/user/**").permitAll()
                         .anyRequest().denyAll());
 
