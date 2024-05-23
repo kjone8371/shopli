@@ -15,18 +15,22 @@ import java.util.Optional;
 public class ItemServiceImpl implements ItemService {
     private final ItemRepository itemRepository;
 
+    @Override
     public List<Item> getAllItems() {
         return itemRepository.findAll();
     }
 
+    @Override
     public Optional<Item> getItemById(Long id) {
         return itemRepository.findById(id);
     }
 
+    @Override
     public Item createItem(Item item) {
         return itemRepository.save(item);
     }
 
+    @Override
     public Item updateItem(Long id, Item items) {
         Item item = itemRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Item not found"));
@@ -41,6 +45,7 @@ public class ItemServiceImpl implements ItemService {
         return itemRepository.save(item);
     }
 
+    @Override
     public void deleteItem(Long id) {
         Item item = itemRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Item not found"));
@@ -48,6 +53,7 @@ public class ItemServiceImpl implements ItemService {
         itemRepository.delete(item);
     }
 
+    @Override
     public List<Item> searchItems(String keyword) {
         return itemRepository.findByNameContaining(keyword);
     }
