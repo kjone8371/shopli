@@ -11,12 +11,12 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/items")
+@RequestMapping("/items")
 @RequiredArgsConstructor
 public class ItemController {
     private final ItemService itemService;
-
-    @GetMapping("/getall")
+    
+    @GetMapping("/all")
     public ResponseEntity<List<Item>> getAllItems() {
         List<Item> items = itemService.getAllItems();
         return new ResponseEntity<>(items, HttpStatus.OK);
