@@ -23,7 +23,7 @@ public class Item {
     private Long id; //상품코드
 
     @Column(nullable = false, length = 50)
-    private String name; //상품명
+    private String name; //상품
 
     @Column(nullable = false)
     private String price; //가격 // 수정
