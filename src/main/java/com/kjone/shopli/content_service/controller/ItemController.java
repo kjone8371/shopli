@@ -3,9 +3,11 @@ package com.kjone.shopli.content_service.controller;
 
 import com.kjone.shopli.content_service.domain.entity.Item;
 import com.kjone.shopli.content_service.service.ItemService;
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -30,7 +32,14 @@ public class ItemController {
     }
 
     @PostMapping("/create/item")
-    public ResponseEntity<Item> createItem(@RequestBody Item item) {
+    public ResponseEntity<Item> createItem(@RequestBody Item item, HttpServletRequest request) {
+//        Item createdItem = itemService.createItem(item);
+//        return new ResponseEntity<>(createdItem, HttpStatus.CREATED);
+        // 여기서는 추가적인 권한 검증 로직을 넣을 수 있습니다.
+        if (SecurityContextHolder.getContext().getAuthentication() == null) {
+            return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+        }
+
         Item createdItem = itemService.createItem(item);
         return new ResponseEntity<>(createdItem, HttpStatus.CREATED);
     }
