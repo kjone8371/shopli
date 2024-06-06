@@ -103,5 +103,17 @@ public class AccountController {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
     }
+
+    // JWT 테스트 엔드포인트
+    @GetMapping("/test-jwt")
+    public ResponseEntity<String> testJwt(@RequestParam String token) {
+        boolean isValid = jwtProvider.validateToken(token);
+        if (isValid) {
+            return new ResponseEntity<>("JWT 토큰이 유효합니다.", HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>("JWT 토큰이 유효하지 않습니다.", HttpStatus.UNAUTHORIZED);
+        }
+    }
+
 }
 
