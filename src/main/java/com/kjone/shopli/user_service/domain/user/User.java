@@ -4,6 +4,7 @@ package com.kjone.shopli.user_service.domain.user;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.kjone.shopli.content_service.domain.entity.CartItem;
 import com.kjone.shopli.content_service.domain.entity.Order;
+import com.kjone.shopli.content_service.domain.entity.Post;
 import com.kjone.shopli.user_service.domain.role.Authority;
 import jakarta.persistence.*;
 import lombok.*;
@@ -56,7 +57,10 @@ public class User {
     private List<Order> orders;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Profile> profiles;
+    private Set<Profile> profiles;
+
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private Set<Post> posts = new HashSet<>();
 
     public User(Long id, String email, String password, String username, int age, LocalDateTime createTime, LocalDateTime updateTime, Set<Authority> roles) {
         this.id = id;
