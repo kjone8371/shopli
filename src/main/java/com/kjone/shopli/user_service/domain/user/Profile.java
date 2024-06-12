@@ -5,7 +5,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.kjone.shopli.content_service.domain.entity.Post;
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
+import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -27,6 +30,12 @@ public class Profile {
     private int phone; // 전화번호
 
     private Long my_post; // 내 게시물
+
+    @CreationTimestamp
+    private LocalDateTime createTime = LocalDateTime.now();
+
+    @UpdateTimestamp
+    private LocalDateTime updateTime = LocalDateTime.now();
 
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
