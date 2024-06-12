@@ -42,7 +42,7 @@ public class User {
     @UpdateTimestamp // UPDATE 시 자동으로 값을 채워줌
     private LocalDateTime updateTime = LocalDateTime.now();
 
-    // 권한이라는 것에 외래키를 추가
+    // 권한이라는 것에 외래키를 추가 함
     @ElementCollection(fetch = FetchType.EAGER)
     @Enumerated(EnumType.STRING)
     @CollectionTable(name = "authority", joinColumns = @JoinColumn(name = "user_id"))
