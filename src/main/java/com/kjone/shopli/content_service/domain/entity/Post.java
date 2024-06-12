@@ -28,10 +28,10 @@ public class Post {
     private String content;
 
     @CreationTimestamp
-    private LocalDateTime createTime;
+    private LocalDateTime createTime = LocalDateTime.now();
 
     @UpdateTimestamp
-    private LocalDateTime updateTime;
+    private LocalDateTime updateTime = LocalDateTime.now();
 
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
