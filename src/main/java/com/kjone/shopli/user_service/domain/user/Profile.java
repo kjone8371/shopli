@@ -2,8 +2,12 @@ package com.kjone.shopli.user_service.domain.user;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.kjone.shopli.content_service.domain.entity.Post;
 import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "user_profile")
@@ -21,11 +25,13 @@ public class Profile {
     @Column(length = 128)
     private Long image; // 이미지
     private int phone; // 전화번호
-    private Long my_post; // 내 게시글
+
+    private Long my_post; // 내 게시물
 
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
-
+    @OneToMany(mappedBy = "profile", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private Set<Post> posts = new HashSet<>();
 }
