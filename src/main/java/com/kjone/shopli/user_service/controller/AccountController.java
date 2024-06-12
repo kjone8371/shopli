@@ -1,9 +1,11 @@
 package com.kjone.shopli.user_service.controller;
 
 
+import com.kjone.shopli.user_service.domain.request.ProfileRequest;
 import com.kjone.shopli.user_service.domain.request.SignRequest;
 import com.kjone.shopli.user_service.domain.response.SignResponse;
 import com.kjone.shopli.user_service.domain.role.Authority;
+import com.kjone.shopli.user_service.domain.user.Profile;
 import com.kjone.shopli.user_service.domain.user.User;
 import com.kjone.shopli.user_service.security.cookie.CookieProvider;
 import com.kjone.shopli.user_service.security.jwt.JwtProvider;
@@ -85,9 +87,15 @@ public class AccountController {
     }
 
     @PostMapping("/{id}/profile")
-    public ResponseEntity<User> createProfile(@PathVariable Long id, @RequestBody SignRequest signRequest) {
+    public ResponseEntity<User> createProfile(@PathVariable Long id, @RequestBody ProfileRequest profileRequest) {
         try {
-            User user = userService.createProfile(id, signRequest);
+            Profile profile = new Profile();
+            profile.setNickname(profileRequest.getNickname());
+            profile.setImage(profileRequest.getImage());
+            profile.setPhone(profileRequest.getPhone());
+            profile.setMy_post(profileRequest.getMy_post());
+
+            User user = userService.createProfile(id, profile);
             return new ResponseEntity<>(user, HttpStatus.CREATED);
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
@@ -95,12 +103,28 @@ public class AccountController {
     }
 
     @PutMapping("/{id}/profile")
-    public ResponseEntity<User> updateProfile(@PathVariable Long id, @RequestBody SignRequest signRequest) {
+    public ResponseEntity<User> updateProfile(@PathVariable Long id, @RequestBody ProfileRequest profileRequest) {
         try {
-            User user = userService.updateProfile(id, signRequest);
+            Profile profile = new Profile();
+            profile.setNickname(profileRequest.getNickname());
+            profile.setImage(profileRequest.getImage());
+            profile.setPhone(profileRequest.getPhone());
+            profile.setMy_post(profileRequest.getMy_post());
+
+            User user = userService.updateProfile(id, profile);
             return new ResponseEntity<>(user, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @GetMapping("/{userId}/profile/{profileId}")
+    public ResponseEntity<Profile> getProfile(@PathVariable Long userId, @PathVariable Long profileId) {
+        try {
+            Profile profile = userService.getProfile(userId, profileId);
+            return new ResponseEntity<>(profile, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
         }
     }
 
