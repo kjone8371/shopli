@@ -3,7 +3,9 @@ package com.kjone.shopli.user_service.service.impl;
 import com.kjone.shopli.user_service.domain.request.SignRequest;
 import com.kjone.shopli.user_service.domain.response.SignResponse;
 import com.kjone.shopli.user_service.domain.role.Authority;
+import com.kjone.shopli.user_service.domain.user.Profile;
 import com.kjone.shopli.user_service.domain.user.User;
+import com.kjone.shopli.user_service.repository.ProfileRepository;
 import com.kjone.shopli.user_service.repository.UserRepository;
 import com.kjone.shopli.user_service.security.cookie.CookieProvider;
 import com.kjone.shopli.user_service.service.UserService;
@@ -24,6 +26,7 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
+    private final ProfileRepository profileRepository;
     private final PasswordEncoder passwordEncoder;
     private final CookieProvider cookieProvider;
 
@@ -104,30 +107,45 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional
-    public User createProfile(Long userId, SignRequest signRequest) throws Exception {
+    public User createProfile(Long userId, Profile profile) throws Exception {
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new Exception("사용자를 찾을 수 없습니다."));
 
-        user.setUsername(signRequest.getUsername());
-        user.setAge(signRequest.getAge());
-        user.setImage(signRequest.getImage());
-        user.setUpdateTime(LocalDateTime.now());
+        profile.setUser(user);
+        profile.setCreateTime(LocalDateTime.now());
+        profileRepository.save(profile);
 
+        user.getProfiles().add(profile);
         return userRepository.save(user);
     }
 
     @Override
     @Transactional
-    public User updateProfile(Long userId, SignRequest signRequest) throws Exception {
+    public User updateProfile(Long userId, Profile profileDetails) throws Exception {
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new Exception("사용자를 찾을 수 없습니다."));
 
-        user.setUsername(signRequest.getUsername());
-        user.setAge(signRequest.getAge());
-        user.setImage(signRequest.getImage());
-        user.setUpdateTime(LocalDateTime.now());
+        Profile profile = profileRepository.findById(profileDetails.getId())
+                .orElseThrow(() -> new Exception("프로필을 찾을 수 없습니다."));
 
-        return userRepository.save(user);
+        profile.setNickname(profileDetails.getNickname());
+        profile.setImage(profileDetails.getImage());
+        profile.setPhone(profileDetails.getPhone());
+        profile.setUpdateTime(LocalDateTime.now());
+        profileRepository.save(profile);
+
+        return user;
+    }
+
+    @Override
+    public Profile getProfile(Long userId, Long profileId) throws Exception {
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new Exception("사용자를 찾을 수 없습니다."));
+
+        return user.getProfiles().stream()
+                .filter(profile -> profile.getId().equals(profileId))
+                .findFirst()
+                .orElseThrow(() -> new Exception("프로필을 찾을 수 없습니다."));
     }
 
     @Override
