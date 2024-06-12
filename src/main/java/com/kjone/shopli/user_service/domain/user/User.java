@@ -32,6 +32,7 @@ public class User {
     private String password; // 비밀번호
     private String username; // 유저 이름
     private int age; // 나이
+
     @JsonIgnore
     private Long image; // 이미지
 
