@@ -55,6 +55,8 @@ public class User {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Order> orders;
 
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Profile> profiles;
 
     public User(Long id, String email, String password, String username, int age, LocalDateTime createTime, LocalDateTime updateTime, Set<Authority> roles) {
         this.id = id;
