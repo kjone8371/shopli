@@ -128,6 +128,16 @@ public class AccountController {
         }
     }
 
+    @DeleteMapping("/{userId}/profile/{profileId}")
+    public ResponseEntity<String> deleteProfile(@PathVariable Long userId, @PathVariable Long profileId) {
+        try {
+            userService.deleteProfile(userId, profileId);
+            return new ResponseEntity<>("프로필이 성공적으로 삭제되었습니다.", HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>("프로필 삭제에 실패했습니다.", HttpStatus.BAD_REQUEST);
+        }
+    }
+
     // JWT 테스트 엔드포인트
     @GetMapping("/test-jwt")
     public ResponseEntity<String> testJwt(@RequestParam String token) {
