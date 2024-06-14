@@ -21,12 +21,14 @@ public class CartController {
     private final UserService userService;
     private final ItemService itemService;
 
+    // 카트 유저 가져오기
     @GetMapping("/{userId}")
     public ResponseEntity<List<CartItem>> getCartItems(@PathVariable Long userId) {
         List<CartItem> cartItems = cartItemService.getCartItemsByUserId(userId);
         return new ResponseEntity<>(cartItems, HttpStatus.OK);
     }
 
+    // 카트 아이템 등록
     @PostMapping("/{userId}/add")
     public ResponseEntity<CartItem> addCartItem(@PathVariable Long userId, @RequestParam Long itemId, @RequestParam int quantity) {
         User user = userService.getUserById(userId)
@@ -38,6 +40,7 @@ public class CartController {
         return new ResponseEntity<>(cartItem, HttpStatus.CREATED);
     }
 
+    // 카트 아이템 삭제
     @DeleteMapping("/remove/{cartItemId}")
     public ResponseEntity<Void> removeCartItem(@PathVariable Long cartItemId) {
         cartItemService.removeCartItem(cartItemId);
