@@ -1,6 +1,7 @@
 package com.kjone.shopli.user_service.service;
 
 import com.kjone.shopli.user_service.domain.request.SignRequest;
+import com.kjone.shopli.user_service.domain.response.ProfileResponse;
 import com.kjone.shopli.user_service.domain.response.SignResponse;
 import com.kjone.shopli.user_service.domain.user.Profile;
 import com.kjone.shopli.user_service.domain.user.User;
@@ -18,6 +19,6 @@ public interface UserService {
     public User createProfile(Long userId, Profile profile) throws Exception;
     public User updateProfile(Long userId, Profile profileDetails) throws Exception;
     public void deleteProfile(Long userId, Long profileId) throws Exception;
-    public Profile getProfile(Long userId, Long profileId) throws Exception;
+    public ProfileResponse getProfile(Long userId, Long profileId) throws Exception;
     public Optional<User> getUserById(Long id) ;
 }
