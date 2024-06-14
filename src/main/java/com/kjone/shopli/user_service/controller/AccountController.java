@@ -3,6 +3,7 @@ package com.kjone.shopli.user_service.controller;
 
 import com.kjone.shopli.user_service.domain.request.ProfileRequest;
 import com.kjone.shopli.user_service.domain.request.SignRequest;
+import com.kjone.shopli.user_service.domain.response.ProfileResponse;
 import com.kjone.shopli.user_service.domain.response.SignResponse;
 import com.kjone.shopli.user_service.domain.role.Authority;
 import com.kjone.shopli.user_service.domain.user.Profile;
@@ -119,12 +120,16 @@ public class AccountController {
     }
 
     @GetMapping("/{userId}/profile/{profileId}")
-    public ResponseEntity<Profile> getProfile(@PathVariable Long userId, @PathVariable Long profileId) {
+    public ResponseEntity<ProfileResponse> getProfile(@PathVariable Long userId, @PathVariable Long profileId) {
         try {
-            Profile profile = userService.getProfile(userId, profileId);
-            return new ResponseEntity<>(profile, HttpStatus.OK);
+            ProfileResponse profileResponse = userService.getProfile(userId, profileId);
+            if (profileResponse != null) {
+                return ResponseEntity.ok(profileResponse);
+            } else {
+                return ResponseEntity.notFound().build();
+            }
         } catch (Exception e) {
-            return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
     }
 
