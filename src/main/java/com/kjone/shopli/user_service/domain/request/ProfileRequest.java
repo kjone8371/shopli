@@ -2,6 +2,7 @@ package com.kjone.shopli.user_service.domain.request;
 
 import lombok.Data;
 
+
 @Data
 public class ProfileRequest {
     private String nickname;
