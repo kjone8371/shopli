@@ -17,13 +17,15 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ItemController {
     private final ItemService itemService;
-    
+
+    // 아이템 전체 정보 가져오기
     @GetMapping("/all")
     public ResponseEntity<List<Item>> getAllItems() {
         List<Item> items = itemService.getAllItems();
         return new ResponseEntity<>(items, HttpStatus.OK);
     }
 
+    // 해당 아이템 가져오기
     @GetMapping("/getId")
     public ResponseEntity<Item> getItemById(@RequestParam Long id) {
         Item item = itemService.getItemById(id)
@@ -31,6 +33,7 @@ public class ItemController {
         return new ResponseEntity<>(item, HttpStatus.OK);
     }
 
+    // 아이템 생성하기
     @PostMapping("/create/item")
     public ResponseEntity<Item> createItem(@RequestBody Item item, HttpServletRequest request) {
 //        Item createdItem = itemService.createItem(item);
@@ -44,18 +47,22 @@ public class ItemController {
         return new ResponseEntity<>(createdItem, HttpStatus.CREATED);
     }
 
+
+    // 해당 아이템 업데이트
     @PutMapping("/{id}")
     public ResponseEntity<Item> updateItem(@PathVariable Long id, @RequestBody Item itemDetails) {
         Item updatedItem = itemService.updateItem(id, itemDetails);
         return new ResponseEntity<>(updatedItem, HttpStatus.OK);
     }
 
+    // 해당 아이템 삭제
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteItem(@PathVariable Long id) {
         itemService.deleteItem(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
+    // 아이템 검색
     @GetMapping("/search")
     public ResponseEntity<List<Item>> searchItems(@RequestParam String keyword) {
         List<Item> items = itemService.searchItems(keyword);
