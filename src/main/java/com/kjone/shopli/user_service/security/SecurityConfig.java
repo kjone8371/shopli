@@ -44,8 +44,8 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.DELETE, "/user/delete").hasRole("USER")
                         .requestMatchers(HttpMethod.GET,"/items/**").permitAll()
                         .requestMatchers(HttpMethod.POST,"/items/**").permitAll()
-                        .requestMatchers("/cart/**").permitAll()
-                        .requestMatchers("/orders/**").permitAll()
+                        .requestMatchers("/api/cart/**").permitAll()
+                        .requestMatchers("/api/orders/**").permitAll()
                         .requestMatchers("/user/**").permitAll()
                         .anyRequest().denyAll());
 
