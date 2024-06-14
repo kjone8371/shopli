@@ -1,4 +1,5 @@
 package com.kjone.shopli.content_service.domain.entity;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -22,6 +23,7 @@ public class OrderItem {
     private Order order_id;
 
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "item_id", nullable = false)
     private Item item_id;
 
