@@ -1,6 +1,8 @@
 package com.kjone.shopli.user_service.service.impl;
 
+import com.kjone.shopli.content_service.domain.entity.CartItem;
 import com.kjone.shopli.user_service.domain.request.SignRequest;
+import com.kjone.shopli.user_service.domain.response.ProfileResponse;
 import com.kjone.shopli.user_service.domain.response.SignResponse;
 import com.kjone.shopli.user_service.domain.role.Authority;
 import com.kjone.shopli.user_service.domain.user.Profile;
@@ -151,16 +153,18 @@ public class UserServiceImpl implements UserService {
         user.getProfiles().remove(profileToDelete);
         userRepository.save(user);
     }
-
     @Override
-    public Profile getProfile(Long userId, Long profileId) throws Exception {
+    public ProfileResponse getProfile(Long userId, Long profileId) throws Exception {
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new Exception("사용자를 찾을 수 없습니다."));
 
-        return user.getProfiles().stream()
-                .filter(profile -> profile.getId().equals(profileId))
+        Profile profile = user.getProfiles().stream()
+                .filter(p -> p.getId().equals(profileId))
                 .findFirst()
                 .orElseThrow(() -> new Exception("프로필을 찾을 수 없습니다."));
+
+        List<CartItem> cartItems = user.getCartItems();
+        return ProfileResponse.from(profile, cartItems);
     }
 
     @Override
