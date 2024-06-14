@@ -1,6 +1,7 @@
 package com.kjone.shopli.content_service.domain.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.kjone.shopli.user_service.domain.user.User;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -24,10 +25,12 @@ public class Order {
     private Long id;
 
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
 
+    @JsonIgnore
     @OneToMany(mappedBy = "order_id", cascade = CascadeType.ALL)
     private List<OrderItem> orderItems;
 
