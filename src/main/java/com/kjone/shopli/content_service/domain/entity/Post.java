@@ -1,6 +1,7 @@
 package com.kjone.shopli.content_service.domain.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.kjone.shopli.user_service.domain.user.Profile;
 import com.kjone.shopli.user_service.domain.user.User;
 import jakarta.persistence.*;
@@ -34,10 +35,12 @@ public class Post {
     private LocalDateTime updateTime = LocalDateTime.now();
 
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "profile_id", nullable = false)
     private Profile profile;
 }
