@@ -31,7 +31,6 @@ public class ProfileResponse {
         this.phone = phone;
         this.my_post = myPost;
         this.cartItems = new ArrayList<>();
-        for (CartItemResponse cartItemDTO : cartItemDTOs) {}
     }
 
     public static ProfileResponse from(Profile profile, List<CartItem> cartItems) {
