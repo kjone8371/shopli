@@ -87,6 +87,10 @@ public class AccountController {
         return new ResponseEntity<>(users, HttpStatus.OK);
     }
 
+    // ---------------------------------------------------------------------------------------------------------
+    // 프로필 엔드포인트
+
+    // 프로필 생성
     @PostMapping("/{id}/profile")
     public ResponseEntity<User> createProfile(@PathVariable Long id, @RequestBody ProfileRequest profileRequest) {
         try {
@@ -103,6 +107,7 @@ public class AccountController {
         }
     }
 
+    // 업데이트 프로필
     @PutMapping("/{id}/profile")
     public ResponseEntity<User> updateProfile(@PathVariable Long id, @RequestBody ProfileRequest profileRequest) {
         try {
@@ -119,6 +124,7 @@ public class AccountController {
         }
     }
 
+    // 프로필 정보 가져오기
     @GetMapping("/{userId}/profile/{profileId}")
     public ResponseEntity<ProfileResponse> getProfile(@PathVariable Long userId, @PathVariable Long profileId) {
         try {
@@ -133,6 +139,7 @@ public class AccountController {
         }
     }
 
+    // 프로필 삭제
     @DeleteMapping("/{userId}/profile/{profileId}")
     public ResponseEntity<String> deleteProfile(@PathVariable Long userId, @PathVariable Long profileId) {
         try {
