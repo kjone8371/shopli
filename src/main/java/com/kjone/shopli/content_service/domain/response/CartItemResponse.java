@@ -2,7 +2,6 @@ package com.kjone.shopli.content_service.domain.response;
 
 
 import com.kjone.shopli.content_service.domain.entity.CartItem;
-import com.kjone.shopli.content_service.domain.entity.Item;
 import lombok.*;
 
 @Setter
