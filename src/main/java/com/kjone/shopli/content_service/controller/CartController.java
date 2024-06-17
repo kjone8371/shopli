@@ -28,6 +28,7 @@ public class CartController {
         return new ResponseEntity<>(cartItems, HttpStatus.OK);
     }
 
+    // 유적속 카트에 담긴 정보 보기
     @GetMapping("/get/{userId}/{cartItemId}")
     public ResponseEntity<CartItem> getCartItem(@PathVariable Long userId, @PathVariable Long cartItemId) {
         List<CartItem> cartItems = cartItemService.getCartItemsByUserId(userId);
