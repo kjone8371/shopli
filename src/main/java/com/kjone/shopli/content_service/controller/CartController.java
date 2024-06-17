@@ -28,6 +28,18 @@ public class CartController {
         return new ResponseEntity<>(cartItems, HttpStatus.OK);
     }
 
+    @GetMapping("/get/{userId}/{cartItemId}")
+    public ResponseEntity<CartItem> getCartItem(@PathVariable Long userId, @PathVariable Long cartItemId) {
+        List<CartItem> cartItems = cartItemService.getCartItemsByUserId(userId);
+        CartItem cartItem = null;
+        for (CartItem cartItem1 : cartItems) {
+            if (cartItem1.getId().equals(cartItemId)) {
+                cartItem = cartItem1;
+            }
+        }
+        return new ResponseEntity<>(cartItem, HttpStatus.OK);
+    }
+
     // 카트 아이템 등록
     @PostMapping("/{userId}/add")
     public ResponseEntity<CartItem> addCartItem(@PathVariable Long userId, @RequestParam Long itemId, @RequestParam int quantity) {
