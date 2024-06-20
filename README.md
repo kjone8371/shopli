@@ -52,14 +52,19 @@
 
 https://www.postman.com/downloads
 
++ **Uuser 엔드포인트**
 ```
 http://localhost:8000/user
 http://localhost:8000/user/{userId}/profile/{profileId}
 ```
+
++ **Item 엔드포인트**
 ```
 http://localhost:8000/item
 http://localhost:8000/item/create/item
 ```
+
++ **Cart 엔드포인트**
 ```
 http://localhost:8000/api/cart
 http://localhost:8000/api/cart/{userId}
