@@ -54,7 +54,7 @@ https://www.postman.com/downloads
 
 + **Create MySQL database**
   ```properties
-  spring.datasource.url= jdbc:mysql://localhost:3306/Study_JPA
+  spring.datasource.url= jdbc:mysql://localhost:3306/데이터베이스 이름
   spring.datasource.username=유저이름
   spring.datasource.password=비빌번호
   spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
