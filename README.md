@@ -39,8 +39,11 @@
     ```build
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-security'
-    implementation 'io.jsonwebtoken:jjwt:0.9.1'
     testImplementation 'org.springframework.security:spring-security-test'
+
+    compileOnly group: 'io.jsonwebtoken', name: 'jjwt-api', version: '0.11.2'
+    runtimeOnly group: 'io.jsonwebtoken', name: 'jjwt-impl', version: '0.11.2'
+    runtimeOnly group: 'io.jsonwebtoken', name: 'jjwt-jackson', version: '0.11.2'
     ```
 
 
@@ -55,6 +58,7 @@ https://www.postman.com/downloads
   spring.datasource.username=유저이름
   spring.datasource.password=비빌번호
   spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+  
   ```
 
 + **Create Mail Config**
