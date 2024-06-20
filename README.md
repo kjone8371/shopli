@@ -52,6 +52,8 @@
 
 https://www.postman.com/downloads
 
+## DB SQL properties config
+
 + **Create MySQL database**
   ```properties
   spring.datasource.url= jdbc:mysql://localhost:3306/데이터베이스 이름
