@@ -63,18 +63,22 @@ https://www.postman.com/downloads
 
 + **Create Mail Config**
   ```properties
-  spring.application.name=kjone-Spring-Boot-JPA-Project
-  server.port=7490
+  spring.application.name=shopli
+  server.port=8000
 
-  spring.mail.default-encoding=UTF-8
-  spring.mail.host=smtp.gmail.com
-  spring.mail.port=587
-  spring.mail.username=geniusfusion7@gmail.com
-  spring.mail.password=#### #### ####
-  spring.mail.properties.mail.smtp.starttls.enable=true
-  spring.mail.properties.mail.smtp.auth=true
+  spring.jpa.hibernate.ddl-auto=update
+  spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.MySQLDialect
+  spring.jpa.show-sql=true
+
+  spring.datasource.hikari.maximum-pool-size=20
+  spring.datasource.hikari.minimum-idle=10
+  spring.datasource.hikari.idle-timeout=30000
+  spring.datasource.hikari.max-lifetime=1800000
+  spring.datasource.hikari.connection-timeout=30000
+
+  jwt.secret.key = 키 만들기
   ```
-# DATA.SQL
+# Jwt 시크릿 키 제작 명령어 (Mac)
   ```sql
   REPLACE INTO `roles` VALUES (1,'ADMIN');
   ```
