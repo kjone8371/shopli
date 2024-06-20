@@ -79,9 +79,11 @@ https://www.postman.com/downloads
   jwt.secret.key = 키 만들기
   ```
 # Jwt 시크릿 키 제작 명령어 (Mac)
-  ```sql
-  REPLACE INTO `roles` VALUES (1,'ADMIN');
-  ```
+
+```
+  openssl rand -hex 32
+
+```
 
 
 
