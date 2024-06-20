@@ -55,8 +55,12 @@ https://www.postman.com/downloads
 ```
 http://localhost:8000/user
 http://localhost:8000/user/{userId}/profile/{profileId}
+```
+```
 http://localhost:8000/item
 http://localhost:8000/item/create/item
+```
+```
 http://localhost:8000/api/cart
 http://localhost:8000/api/cart/{userId}
 http://localhost:8000/api/cart/get/{userId}/{cartItemId}
