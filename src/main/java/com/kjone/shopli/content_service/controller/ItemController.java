@@ -18,12 +18,16 @@ import java.util.List;
 public class ItemController {
     private final ItemService itemService;
 
+
+
     // 아이템 전체 정보 가져오기
     @GetMapping("/all")
     public ResponseEntity<List<Item>> getAllItems() {
         List<Item> items = itemService.getAllItems();
         return new ResponseEntity<>(items, HttpStatus.OK);
     }
+
+
 
     // 해당 아이템 가져오기
     @GetMapping("/getId")
@@ -32,6 +36,8 @@ public class ItemController {
                 .orElseThrow(() -> new RuntimeException("Item not found"));
         return new ResponseEntity<>(item, HttpStatus.OK);
     }
+
+
 
     // 아이템 생성하기
     @PostMapping("/create/item")
@@ -46,6 +52,7 @@ public class ItemController {
         Item createdItem = itemService.createItem(item);
         return new ResponseEntity<>(createdItem, HttpStatus.CREATED);
     }
+
 
 
     // 해당 아이템 업데이트
