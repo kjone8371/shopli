@@ -2,6 +2,7 @@ package com.kjone.shopli.content_service.controller;
 
 import com.kjone.shopli.content_service.domain.entity.CartItem;
 import com.kjone.shopli.content_service.domain.entity.Item;
+import com.kjone.shopli.content_service.domain.response.CartItemResponse;
 import com.kjone.shopli.content_service.service.CartItemService;
 import com.kjone.shopli.content_service.service.ItemService;
 import com.kjone.shopli.user_service.domain.user.User;
@@ -12,6 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/cart")
@@ -23,9 +25,12 @@ public class CartController {
 
     // 카트 유저 가져오기
     @GetMapping("/{userId}")
-    public ResponseEntity<List<CartItem>> getCartItems(@PathVariable Long userId) {
+    public ResponseEntity<List<CartItemResponse>> getCartItems(@PathVariable Long userId) {
         List<CartItem> cartItems = cartItemService.getCartItemsByUserId(userId);
-        return new ResponseEntity<>(cartItems, HttpStatus.OK);
+        List<CartItemResponse> cartItemResponses = cartItems.stream()
+                .map(CartItemResponse::from)
+                .collect(Collectors.toList());
+        return new ResponseEntity<>(cartItemResponses, HttpStatus.OK);
     }
 
     // 유적속 카트에 담긴 정보 보기
