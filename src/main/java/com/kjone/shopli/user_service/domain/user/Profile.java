@@ -44,4 +44,6 @@ public class Profile {
 
     @OneToMany(mappedBy = "profile", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<Post> posts = new HashSet<>();
+
+
 }
