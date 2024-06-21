@@ -1,6 +1,8 @@
 package com.kjone.shopli.user_service.service.impl;
 
 import com.kjone.shopli.content_service.domain.entity.CartItem;
+import com.kjone.shopli.content_service.domain.response.CartItemResponse;
+import com.kjone.shopli.content_service.repository.CartItemRepository;
 import com.kjone.shopli.user_service.domain.request.SignRequest;
 import com.kjone.shopli.user_service.domain.response.ProfileResponse;
 import com.kjone.shopli.user_service.domain.response.SignResponse;
@@ -31,6 +33,7 @@ public class UserServiceImpl implements UserService {
     private final ProfileRepository profileRepository;
     private final PasswordEncoder passwordEncoder;
     private final CookieProvider cookieProvider;
+    private final CartItemRepository cartItemRepository;
 
     @Override
     @Transactional
@@ -163,9 +166,14 @@ public class UserServiceImpl implements UserService {
                 .findFirst()
                 .orElseThrow(() -> new Exception("프로필을 찾을 수 없습니다."));
 
-        List<CartItem> cartItems = user.getCartItems();
-        return ProfileResponse.from(profile, cartItems);
+        List<CartItem> cartItems = cartItemRepository.findByUserId(userId);
+        List<CartItemResponse> cartItemResponses = cartItems.stream()
+                .map(CartItemResponse::from)
+                .collect(Collectors.toList());
+
+        return ProfileResponse.from(profile, cartItemResponses);
     }
+
 
     @Override
     public Optional<User> getUserById(Long id) {
