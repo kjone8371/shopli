@@ -11,14 +11,16 @@ import lombok.*;
 @AllArgsConstructor
 public class CartItemResponse {
     private Long id;
-    private String itemName;
     private int quantity;
+    private Long itemId;
+    private Long userId;
 
     public static CartItemResponse from(CartItem cartItem) {
         return new CartItemResponse(
                 cartItem.getId(),
-                cartItem.getItem().getName(), // 예시로 Item에서 이름 가져오기
-                cartItem.getQuantity()
+                cartItem.getQuantity(),
+                cartItem.getItem().getId(),
+                cartItem.getUser().getId()
         );
     }
 }
