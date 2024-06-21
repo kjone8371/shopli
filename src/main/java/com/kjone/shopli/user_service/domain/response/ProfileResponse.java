@@ -22,27 +22,16 @@ public class ProfileResponse {
     private String nickname;
     private Long image; // 이미지
     private int phone; // 전화번호
-    private Long my_post; // 내 게시물
-    private List<CartItem> cartItems;
+    private Long myPost; // 내 게시물
+    private List<CartItemResponse> cartItems;
 
-    public ProfileResponse(Long id, String nickname, int phone, Long myPost, List<CartItemResponse> cartItemDTOs) {
-        this.id = id;
-        this.nickname = nickname;
-        this.phone = phone;
-        this.my_post = myPost;
-        this.cartItems = new ArrayList<>();
-    }
-
-    public static ProfileResponse from(Profile profile, List<CartItem> cartItems) {
-        List<CartItemResponse> cartItemDTOs = cartItems.stream()
-                .map(CartItemResponse::from)
-                .toList();
-        return new ProfileResponse(
-                profile.getId(),
-                profile.getNickname(),
-                profile.getPhone(),
-                profile.getMy_post(),
-                cartItemDTOs
-        );
+    public static ProfileResponse from(Profile profile, List<CartItemResponse> cartItemResponses) {
+        return ProfileResponse.builder()
+                .id(profile.getId())
+                .nickname(profile.getNickname())
+                .image(profile.getImage())
+                .phone(profile.getPhone())
+                .cartItems(cartItemResponses)
+                .build();
     }
 }
