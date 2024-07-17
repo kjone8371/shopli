@@ -124,6 +124,8 @@ public class AccountController {
         }
     }
 
+    // 잠깐의 오류가 있습니다.
+
     // 프로필 정보 가져오기
     @GetMapping("/{userId}/profile/{profileId}")
     public ResponseEntity<ProfileResponse> getProfile(@PathVariable Long userId, @PathVariable Long profileId) {
